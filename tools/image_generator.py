@@ -6,7 +6,11 @@ class ImageGenerator:
     """Tool for generating and processing interior design images."""
 
     def __init__(self, upload_folder: str = 'uploads'):
+<<<<<<< HEAD
         self.upload_folder = upload_folder
+=======
+        self.upload_folder = upload_folder 
+>>>>>>> 37be0ec04cb52e904b1b9174b5cf754bfeb3def4
 
     def generate_design_preview(self, style: str, room_type: str) -> str:
         """Generate a design preview image using AI."""
