@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Gruha Alankara{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Gruha Alankara</h1>
+        <p>Transform your living space with AI-powered interior design.</p>
+        <a href="{{ url_for('design') }}" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <h3>AI Design Suggestions</h3>
+        <p>Get personalized interior design recommendations powered by AI.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Room Analyzer</h3>
+        <p>Upload your room photo and get instant analysis and improvement tips.</p>
+    </div>
+    <div class="feature-card">
+        <h3>AR Viewer</h3>
+        <p>Visualize furniture and decor in your space using augmented reality.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Budget Planner</h3>
+        <p>Plan your interior design project within your budget.</p>
+    </div>
+</section>
+{% endblock %}

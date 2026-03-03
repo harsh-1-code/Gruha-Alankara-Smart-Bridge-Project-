@@ -1,0 +1,5 @@
+# This directory stores user-uploaded room images.
+# Ensure this directory has write permissions for the web server.
+
+# Files in this directory are excluded from version control.
+# See .gitignore for configuration.

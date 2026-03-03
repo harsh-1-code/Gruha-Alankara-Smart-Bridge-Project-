@@ -1,0 +1,3 @@
+# Database directory
+# The SQLite database file (designs.db) will be created here
+# when the application runs for the first time.

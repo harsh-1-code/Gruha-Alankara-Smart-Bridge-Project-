@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Room Analyzer - Gruha Alankara{% endblock %}
+
+{% block content %}
+<div class="analyze-page">
+    <h2>Room Analyzer</h2>
+    <p>Upload a photo of your room to get AI-powered design analysis and recommendations.</p>
+
+    <div class="upload-section">
+        <form method="POST" action="/analyze" enctype="multipart/form-data" id="analyze-form">
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="room-image" name="room_image"
+                       accept="image/*" required hidden>
+                <label for="room-image" class="upload-label">
+                    <span>Click to upload or drag and drop</span>
+                    <span class="file-types">PNG, JPG, JPEG up to 16MB</span>
+                </label>
+            </div>
+            <div id="image-preview" class="image-preview hidden"></div>
+            <button type="submit" class="btn btn-primary">Analyze Room</button>
+        </form>
+    </div>
+
+    {% if analysis %}
+    <div class="analysis-results">
+        <h3>Analysis Results</h3>
+        <div class="result-card">
+            <h4>Detected Room Type</h4>
+            <p>{{ analysis.room_type }}</p>
+        </div>
+        <div class="result-card">
+            <h4>Design Style</h4>
+            <p>{{ analysis.style }}</p>
+        </div>
+        <div class="result-card">
+            <h4>Detected Furniture</h4>
+            <ul>
+                {% for item in analysis.detected_furniture %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="result-card">
+            <h4>Recommendations</h4>
+            <ul>
+                {% for rec in analysis.recommendations %}
+                <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/analyze.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Live AR Camera - Gruha Alankara{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ar.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="live-ar-page">
+    <h2>Live AR Camera</h2>
+    <p>Use your device camera to see furniture placed in your real environment in real-time.</p>
+
+    <div class="camera-container">
+        <video id="camera-feed" class="camera-feed" autoplay playsinline></video>
+        <canvas id="ar-overlay" class="ar-overlay"></canvas>
+
+        <div class="camera-controls">
+            <button id="start-camera" class="btn btn-primary">Start Camera</button>
+            <button id="flip-camera" class="btn btn-secondary" disabled>Flip Camera</button>
+            <button id="capture-photo" class="btn btn-secondary" disabled>Capture</button>
+            <button id="stop-camera" class="btn btn-danger" disabled>Stop Camera</button>
+        </div>
+    </div>
+
+    <div class="ar-furniture-panel">
+        <h3>Place Furniture</h3>
+        <div class="furniture-grid" id="ar-furniture-grid">
+            <!-- Furniture items will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/live_ar.js') }}"></script>
+{% endblock %}

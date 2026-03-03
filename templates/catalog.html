@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Furniture Catalog - Gruha Alankara{% endblock %}
+
+{% block content %}
+<div class="catalog-page">
+    <h2>Furniture Catalog</h2>
+    <p>Browse our curated collection of furniture and decor items.</p>
+
+    <div class="catalog-filters">
+        <select id="filter-style" class="form-control">
+            <option value="">All Styles</option>
+            <option value="modern">Modern</option>
+            <option value="traditional">Traditional</option>
+            <option value="minimalist">Minimalist</option>
+        </select>
+        <select id="filter-category" class="form-control">
+            <option value="">All Categories</option>
+            <option value="sofa">Sofas</option>
+            <option value="chair">Chairs</option>
+            <option value="table">Tables</option>
+            <option value="bed">Beds</option>
+            <option value="storage">Storage</option>
+        </select>
+        <input type="number" id="filter-max-price" class="form-control"
+               placeholder="Max Price ($)">
+        <button id="apply-filters" class="btn btn-secondary">Apply Filters</button>
+    </div>
+
+    <div class="catalog-grid" id="catalog-grid">
+        {% if items %}
+            {% for item in items %}
+            <div class="catalog-card">
+                <img src="{{ url_for('static', filename='images/' + item.image_path) }}"
+                     alt="{{ item.name }}">
+                <div class="card-info">
+                    <h4>{{ item.name }}</h4>
+                    <p class="price">${{ item.price }}</p>
+                    <p class="style">{{ item.style }}</p>
+                    <button class="btn btn-sm btn-primary">Add to Design</button>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-items">No items found. Check back soon!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/catalog.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,74 @@
+# ─── Virtual Environment ───────────────────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ─── Python Cache ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# ─── Distribution / Build ──────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ─── Database ──────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+database/designs.db
+
+# ─── User Uploads ──────────────────────────────────────────────────────────
+uploads/*
+!uploads/.gitkeep
+
+# ─── Environment Variables ─────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── AI / ML Model Cache ───────────────────────────────────────────────────
+.cache/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+models/
+model_cache/
+huggingface/
+
+# ─── IDE / Editor ──────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ─── OS Files ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Logs ──────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Coverage / Testing ────────────────────────────────────────────────────
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ─── Jupyter ───────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ─── Static Generated Files ────────────────────────────────────────────────
+static/images/*
+!static/images/.gitkeep

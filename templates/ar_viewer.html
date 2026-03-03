@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}AR Viewer - Gruha Alankara{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ar.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="ar-viewer-page">
+    <h2>AR Viewer</h2>
+    <p>Visualize furniture and decor items in your real space using augmented reality.</p>
+
+    <div class="ar-controls">
+        <div class="furniture-selector">
+            <h3>Select Furniture</h3>
+            <div class="furniture-list" id="furniture-list">
+                <!-- Furniture items loaded dynamically -->
+            </div>
+        </div>
+
+        <div class="ar-container">
+            <div id="ar-scene" class="ar-scene">
+                <p class="ar-placeholder">AR scene will load here.<br>
+                Allow camera access when prompted.</p>
+            </div>
+            <div class="ar-buttons">
+                <button id="start-ar" class="btn btn-primary">Start AR</button>
+                <button id="capture-ar" class="btn btn-secondary" disabled>
+                    Capture Screenshot
+                </button>
+                <button id="stop-ar" class="btn btn-danger" disabled>Stop AR</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/ar_viewer.js') }}"></script>
+{% endblock %}
