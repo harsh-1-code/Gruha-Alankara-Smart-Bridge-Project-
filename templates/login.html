@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Gruha Alankara{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card card">
+        <h2>Welcome Back</h2>
+        <p class="auth-subtitle">Log in to access your design studio</p>
+
+        <form method="POST" action="{{ url_for('login') }}" class="auth-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Log In</button>
+        </form>
+
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="{{ url_for('register') }}">Sign up here</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

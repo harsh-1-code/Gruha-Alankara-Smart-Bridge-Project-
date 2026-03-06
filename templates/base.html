@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -21,20 +23,26 @@
             <li><a href="{{ url_for('analyze') }}">Analyze Room</a></li>
             <li><a href="{{ url_for('design') }}">Design Studio</a></li>
             <li><a href="{{ url_for('catalog') }}">My Catalog</a></li>
+            {% if session.get('user_id') %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
         </ul>
     </nav>
 
     <!-- Flash Message System -->
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
-        <div class="flash-container">
+    <div class="flash-container">
         {% for category, message in messages %}
-            <div class="flash {{ category }}">
-                {{ message }}
-                <span class="flash-close" onclick="this.parentElement.remove();">&times;</span>
-            </div>
-        {% endfor %}
+        <div class="flash {{ category }}">
+            {{ message }}
+            <span class="flash-close" onclick="this.parentElement.remove();">&times;</span>
         </div>
+        {% endfor %}
+    </div>
     {% endif %}
     {% endwith %}
 
@@ -62,4 +70,5 @@
     </script>
     {% block scripts %}{% endblock %}
 </body>
+
 </html>

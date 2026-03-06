@@ -580,7 +580,58 @@ a:hover {
     border-top: 1px solid var(--border-color);
 }
 
-/* ---- 18. Animations ---- */
+/* ---- 18. Auth Pages (Login / Register) ---- */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+}
+
+.auth-card h2 {
+    color: var(--accent-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.auth-form {
+    text-align: left;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+.no-items {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* ---- 19. Animations ---- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
