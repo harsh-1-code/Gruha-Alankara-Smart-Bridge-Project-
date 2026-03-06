@@ -8,36 +8,58 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-brand">
-            <a href="{{ url_for('index') }}">Gruha Alankara</a>
+            <a href="{{ url_for('index') }}">🏠 Gruha Alankara</a>
         </div>
-        <ul class="nav-links">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('design') }}">Design</a></li>
-            <li><a href="{{ url_for('catalog') }}">Catalog</a></li>
-            <li><a href="{{ url_for('analyze') }}">Analyze</a></li>
-            <li><a href="{{ url_for('ar_viewer') }}">AR Viewer</a></li>
+            <li><a href="{{ url_for('analyze') }}">Analyze Room</a></li>
+            <li><a href="{{ url_for('design') }}">Design Studio</a></li>
+            <li><a href="{{ url_for('catalog') }}">My Catalog</a></li>
         </ul>
     </nav>
 
-    <main class="main-content">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+    <!-- Flash Message System -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-container">
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+                <span class="flash-close" onclick="this.parentElement.remove();">&times;</span>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
 
+    <!-- Main Content Container -->
+    <main class="container">
         {% block content %}{% endblock %}
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Gruha Alankara. All rights reserved.</p>
+        <p>&copy; 2026 Gruha Alankara. All rights reserved.</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    {% block extra_js %}{% endblock %}
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

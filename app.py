@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from config import Config
+from extensions import db
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -10,9 +10,10 @@ app.config.from_object(Config)
 db_dir = os.path.join(os.path.dirname(__file__), 'database')
 os.makedirs(db_dir, exist_ok=True)
 
-db = SQLAlchemy(app)
+# Initialize the database with the app
+db.init_app(app)
 
-# Import models after db is created to avoid circular imports
+# Import models after db is initialized to register them
 from models import *
 
 
