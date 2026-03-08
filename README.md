@@ -78,7 +78,8 @@ Access the app at `http://127.0.0.1:5000`.
 ## 🗺️ Roadmap
 Check [future_enhancement.md](file:///c:/Work/Gruha-Alankara/future_enhancement.md) for planned features like Redis caching, Three.js 3D previews, and 2FA.
 
----
+---<img width="475" height="465" alt="backend at 1 00 01 PM" src="https://github.com/user-attachments/assets/6187f06d-9477-437c-9196-5f4f098b8bd1" />
+
 
 ## 📄 License
 This project is for educational and portfolio purposes.
