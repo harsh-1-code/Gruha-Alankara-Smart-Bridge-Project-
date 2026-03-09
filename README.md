@@ -13,11 +13,10 @@ Gruha Alankara is an AI and AR-powered Interior Design Platform built using Pyth
 - **AR Furniture Viewer**: Live camera integration to visualize furniture placement in your own space.
 - **Classic Dark Theme**: A premium, responsive UI designed for an immersive creative experience.
 - **Multilingual Voice Assistant**: Support for design queries in English, Hindi, and Telugu.
-- **Smart Catalog**: Automated booking and procurement handle
+- **Smart Catalog**: Automated booking and procurement handled by an intelligent design agent.
 
 https://github.com/user-attachments/assets/81755aea-876f-43fe-baeb-1b4bd0649b64
 
-d by an intelligent design agent.
 
 ---
 
